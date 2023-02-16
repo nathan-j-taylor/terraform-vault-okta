@@ -22,6 +22,7 @@ resource "vault_jwt_auth_backend" "okta_oidc" {
   bound_issuer       = var.okta_discovery_url
   oidc_client_id     = var.okta_client_id
   oidc_client_secret = var.okta_client_secret
+  default_role       = var.default_role
   tune {
     listing_visibility = "unauth"
     default_lease_ttl  = var.okta_default_lease_ttl

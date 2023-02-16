@@ -75,6 +75,12 @@ variable "okta_token_type" {
   default     = "default-service"
 }
 
+variable "default_role" {
+  type        = string
+  description = "Default Role"
+  default     = ""
+}
+
 variable "roles" {
   type    = map
   default = {}
