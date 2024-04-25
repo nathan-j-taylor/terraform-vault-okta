@@ -81,6 +81,12 @@ variable "default_role" {
   default     = ""
 }
 
+variable "verbose_oidc_logging" {
+  type        = bool
+  description = "Verbose OIDC logging"
+  default     = false
+}
+
 variable "roles" {
   type    = map
   default = {}

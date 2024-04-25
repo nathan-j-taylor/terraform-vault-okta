@@ -32,10 +32,11 @@ resource "vault_jwt_auth_backend" "okta_oidc" {
 }
 
 resource "vault_jwt_auth_backend_role" "okta_role" {
-  for_each       = var.roles
-  backend        = vault_jwt_auth_backend.okta_oidc.path
-  role_name      = each.key
-  token_policies = each.value.token_policies
+  for_each             = var.roles
+  backend              = vault_jwt_auth_backend.okta_oidc.path
+  role_name            = each.key
+  token_policies       = each.value.token_policies
+  verbose_oidc_logging = var.verbose_oidc_logging
 
   allowed_redirect_uris = [
     "${var.vault_addr}/ui/vault/auth/${vault_jwt_auth_backend.okta_oidc.path}/oidc/callback",
